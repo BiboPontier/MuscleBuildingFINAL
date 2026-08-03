@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-feature-settings: 'ss01' on, 'cv01' on;
+  }
+  h1, h2, h3, h4 {
+    font-family: theme('fontFamily.display');
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background-color: theme('colors.electric.500 / 35%');
+  }
+  *:focus-visible {
+    outline: 2px solid theme('colors.electric.400');
+    outline-offset: 2px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.base.700');
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-base-900 border border-base-800 rounded-2xl shadow-soft;
+  }
+  .input-base {
+    @apply w-full bg-base-850 border border-base-700 rounded-xl px-3.5 py-2.5 text-sm text-base-100 placeholder:text-base-400 outline-none transition-colors focus:border-electric-500 focus:ring-2 focus:ring-electric-500/25;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-electric-500 px-4 py-2.5 text-sm font-semibold text-white shadow-glow transition-all hover:bg-electric-400 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-base-800 border border-base-700 px-4 py-2.5 text-sm font-medium text-base-100 transition-all hover:bg-base-700 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-base-300 transition-all hover:bg-base-800 hover:text-base-100 disabled:opacity-50;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+  .skeleton {
+    @apply bg-gradient-to-r from-base-800 via-base-700 to-base-800 bg-[length:200%_100%] animate-shimmer rounded-lg;
+  }
+}
